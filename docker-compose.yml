@@ -1,0 +1,39 @@
+version: '3.9'
+
+services: 
+  backend:
+    build:
+      context: ./php/
+      dockerfile: Dockerfile
+    ports:
+      - 3011:8000
+    volumes:
+      - ./app:/var/www/app
+    environment:
+      TZ: Asia/Tokyo
+    depends_on: 
+      - db
+    links:
+      - db
+    stdin_open: true
+    tty: true
+  
+  db:
+    image: mysql:8.0
+    environment: 
+      MYSQL_DATABASE: root
+      MYSQL_ROOT_PASSWORD: password
+      TZ: Asia/Tokyo
+    ports:
+      - '33066:3306'
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./db/sql:/docker-entrypoint-initdb.d
+
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - 4444:4444
+  
