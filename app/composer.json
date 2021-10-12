@@ -26,9 +26,15 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "tests/helpers/functions.php"
+        ]
     },
     "autoload-dev": {
+        "files": [
+            "tests/helpers/functions.php"
+        ],
         "psr-4": {
             "Tests\\": "tests/"
         }
