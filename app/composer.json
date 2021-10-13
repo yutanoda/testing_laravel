@@ -28,12 +28,14 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "tests/helpers/functions.php"
+            "tests/helpers/functions.php",
+            "tests/helpers/Expression.php"
         ]
     },
     "autoload-dev": {
         "files": [
-            "tests/helpers/functions.php"
+            "tests/helpers/functions.php",
+            "tests/helpers/Expression.php"
         ],
         "psr-4": {
             "Tests\\": "tests/"
